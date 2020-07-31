@@ -1,0 +1,82 @@
+Git - Controle de Versão
+
+- Mantém todos os registros de alterações realizadas;
+- Saber quem fez a alteração;
+- Reverter as alterações feitas;
+- Desenvolvimento colaborativo.
+- Faz o controle de versão distribuída (não é centralizada)
+
+Repositório > conjunto de todos os arquivos e seus controles de versão
+Dentro do repositório posso ter arquivos monitorados ou não (tracked / untracked).
+
+Working Directory: arquivo que estou trabalhando, está sendo modificados, não estão prontos;
+
+Staging Area: são os arquivos que estão prontos para terem SNAPSHOT;
+
+Local Repository: já sofreram SNAPSHOT e estão incluidos no histórico;
+Quando o arquivo sai do STAGING e vai para LOCAL são deletados do STAGING;
+
+REMOTE REPOSITORY: Pega os arquivos do LOCAL
+
+Prática
+Entrar na pasta, botão direito e GIT BASH HERE
+Pode usar pelo CMD
+A principio ele nao entende que a pasta é um repositorio GIT, é preciso dar o comando GIT INIT, isso inicializa o repositório como GIT
+O GIT cria uma pasta oculta no repositório
+
+Comandos principais:
+GIT INIT - Cria o repositório GIT
+GIT STATUS - informações atuais do repositório (quem está no working, stage e local);
+$ git reset <arquivo> - retira o arquivo do stage
+
+Configurar usuario:
+git config (--global) user.name <name>
+git config (--global) user.email <email>
+** global na maquina toda, sem global só no diretório atual
+
+SNAPSHOT = COMIT
+
+VSCODE + GIT
+O arquvo nasce untracked (u), quando jogamos no STAGE ele se torna monitorado (tracked);
+
+A = está no stage, pronto para tirar foto (comit)
+git add . - manda tudo que estiver no working para stage
+
+criar um arquivo no VSCODE chamado .gitignore
+inserir tudo o que eu não quero que seja acompanhado pelo GIT
+ex: *.class - irá ignorar tudo que for .class
+    *
+
+Fazer Comit (SNAPSHOT):
+git commit -m "commit incial"
+-m - obrigatório, significa que vou colocar no meu commit uma msg para identificar o que está sendo feito no momento do commit
+
+u - untracked (não monitorad)
+a - está no stage
+m - já foi comitado, mas houve modificacao, tem que mandar pro stage novamente (git add) e depois fazer o commit
+
+
+TAGS:
+git tag -a v0.0.1 -m "nova tag" hash do commit
+git show v0.0.1
+
+
+Criação de Branches (linhas DevOps)
+-git checkout -b develop ------- develop é o nome de branche, faz sempre a cópia de onde esstou
+
+git checkout master ------- pra onde vc quer ir
+
+para subir o da devolop para a master é preciso fazer um merge
+git merge develop
+
+
+GITHUB
+Criar repositório
+Mandar nossos códigos para o servidor do GITHUB (remote)
+git remote add origin caminho (https://github.com/Gulisboa/projCarro.git)
+
+push - mandar da máquina para o remoto
+git push origin master
+git clone ....
+
+pull request - envio de volta. Enviar um pedido para conseguir subir
